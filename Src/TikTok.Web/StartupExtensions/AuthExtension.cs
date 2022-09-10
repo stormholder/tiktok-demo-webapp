@@ -16,6 +16,7 @@ public static class AuthExtension
             tiktokOptions.SaveTokens = true;
             tiktokOptions.Scope.Add("user.info.basic");
             tiktokOptions.Scope.Add("video.list");
+            tiktokOptions.Scope.Add("video.upload");
         });
         return services;
     }
