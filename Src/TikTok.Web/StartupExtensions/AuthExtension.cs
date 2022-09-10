@@ -2,17 +2,20 @@ namespace TikTok.Web.StartupExtensions;
 
 public static class AuthExtension
 {
-    public static IServiceCollection AddTikTokAuth(this IServiceCollection services)
+    public static IServiceCollection AddTikTokAuth(
+        this IServiceCollection services, 
+        IConfiguration configuration
+    )
     {
         services.AddAuthentication(options => {
             options.DefaultAuthenticateScheme = "TikTok";
         })
-        .AddOAuth("TikTok", options => {
-            options.ClientId = "";
-            options.ClientSecret = "";
-            options.SaveTokens = true;
-            options.Scope.Add("user.info.basic");
-            options.Scope.Add("video.list");
+        .AddOAuth("TikTok", tiktokOptions => {
+            tiktokOptions.ClientId = configuration["Authentication:TikTok:ClientId"];
+            tiktokOptions.ClientSecret = configuration["Authentication:TikTok:ClientSecret"];
+            tiktokOptions.SaveTokens = true;
+            tiktokOptions.Scope.Add("user.info.basic");
+            tiktokOptions.Scope.Add("video.list");
         });
         return services;
     }
