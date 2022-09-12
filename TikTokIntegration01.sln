@@ -11,6 +11,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{37E7FAA8
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TikTok.Web.UnitTests", "Tests\TikTok.Web.UnitTests\TikTok.Web.UnitTests.csproj", "{63D842E8-A17D-4759-BA45-435F6B33C17A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TikTok.OAuth", "Src\TikTok.OAuth\TikTok.OAuth.csproj", "{94F43F06-4FB6-40C2-AADC-92096679F114}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,9 +30,14 @@ Global
 		{63D842E8-A17D-4759-BA45-435F6B33C17A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{63D842E8-A17D-4759-BA45-435F6B33C17A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{63D842E8-A17D-4759-BA45-435F6B33C17A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94F43F06-4FB6-40C2-AADC-92096679F114}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94F43F06-4FB6-40C2-AADC-92096679F114}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94F43F06-4FB6-40C2-AADC-92096679F114}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94F43F06-4FB6-40C2-AADC-92096679F114}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{D1626C14-B94C-425B-8193-F9BFC9B9E263} = {56178BBD-7F6E-464A-95DB-94A049DE784F}
 		{63D842E8-A17D-4759-BA45-435F6B33C17A} = {37E7FAA8-3A3E-4604-B678-89DADF4D3EB3}
+		{94F43F06-4FB6-40C2-AADC-92096679F114} = {56178BBD-7F6E-464A-95DB-94A049DE784F}
 	EndGlobalSection
 EndGlobal
