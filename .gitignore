@@ -452,3 +452,9 @@ $RECYCLE.BIN/
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+.vscode/launch.json
+.vscode/tasks.json
+Src/TikTok.Web/Properties/launchSettings.json
+Src/TikTok.Web/app.db
+Src/TikTok.Web/localhost.crt
+Src/TikTok.Web/localhost.key
