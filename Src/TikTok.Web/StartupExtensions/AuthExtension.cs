@@ -1,4 +1,5 @@
-using TikTok.Web.Areas.Identity.Authentication;
+
+using TikTok.OAuth;
 
 namespace TikTok.Web.StartupExtensions;
 
@@ -12,15 +13,19 @@ public static class AuthExtension
         services.AddAuthentication(options => {
             options.DefaultAuthenticateScheme = "TikTok";
         })
-        .AddOAuth(TikTokAuthenticationDefaults.AuthenticationScheme, tiktokOptions => {
-            tiktokOptions.AuthorizationEndpoint = TikTokAuthenticationDefaults.AuthorizationEndpoint;
-            tiktokOptions.CallbackPath = TikTokAuthenticationDefaults.CallbackPath;
-            tiktokOptions.TokenEndpoint = TikTokAuthenticationDefaults.TokenEndpoint;
+        // .AddOAuth(TikTokAuthenticationDefaults.AuthenticationScheme, tiktokOptions => {
+        //     // tiktokOptions.AuthorizationEndpoint = TikTokAuthenticationDefaults.AuthorizationEndpoint;
+        //     // tiktokOptions.CallbackPath = TikTokAuthenticationDefaults.CallbackPath;
+        //     // tiktokOptions.TokenEndpoint = TikTokAuthenticationDefaults.TokenEndpoint;
+        //     tiktokOptions.ClientId = configuration["Authentication:TikTok:ClientId"];
+        //     tiktokOptions.ClientSecret = configuration["Authentication:TikTok:ClientSecret"];
+        //     // tiktokOptions.Scope.Add("user.info.basic");
+        //     // tiktokOptions.Scope.Add("video.list");
+        //     // tiktokOptions.Scope.Add("video.upload");
+        // });
+        .AddTikTok(tiktokOptions => {
             tiktokOptions.ClientId = configuration["Authentication:TikTok:ClientId"];
             tiktokOptions.ClientSecret = configuration["Authentication:TikTok:ClientSecret"];
-            tiktokOptions.Scope.Add("user.info.basic");
-            tiktokOptions.Scope.Add("video.list");
-            tiktokOptions.Scope.Add("video.upload");
         });
         return services;
     }

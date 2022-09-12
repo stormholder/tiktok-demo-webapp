@@ -15,4 +15,7 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.7" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.7" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TikTok.OAuth\TikTok.OAuth.csproj" />
+  </ItemGroup>
 </Project>
