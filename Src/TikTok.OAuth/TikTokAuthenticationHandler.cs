@@ -29,19 +29,11 @@ public partial class TikTokAuthenticationHandler : OAuthHandler<TikTokAuthentica
         var uri = new Uri(challengeUrl);
         var baseUri = uri.GetComponents(UriComponents.Scheme | UriComponents.Host | UriComponents.Port | UriComponents.Path, UriFormat.UriEscaped);
         var query = QueryHelpers.ParseQuery(uri.Query);
+        query.Remove("client_id");
         query["scope"] = String.Join(",", Options.Scope);
         var qb = new QueryBuilder(query);
         qb.Add("client_key", Options.ClientId);
         challengeUrl = baseUri + qb.ToQueryString();
-        
-        // if (!string.IsNullOrEmpty(Options.ClientSecret))
-        // {
-        //     challengeUrl = QueryHelpers.AddQueryString(challengeUrl, "client_key", Options.ClientId);
-        // }
-        // if (Options.Scope.Any())
-        // {
-        //     challengeUrl = QueryHelpers.AddQueryString(challengeUrl, "scope", String.Join(",", Options.Scope));
-        // }
 
         return challengeUrl;
     }
@@ -57,24 +49,8 @@ public partial class TikTokAuthenticationHandler : OAuthHandler<TikTokAuthentica
                 await response.Content.ReadAsStringAsync(cancellationToken));
         }
 
-        internal static async Task EmailAddressErrorAsync(ILogger logger, HttpResponseMessage response, CancellationToken cancellationToken)
-        {
-            EmailAddressError(
-                logger,
-                response.StatusCode,
-                response.Headers.ToString(),
-                await response.Content.ReadAsStringAsync(cancellationToken));
-        }
-
         [LoggerMessage(1, LogLevel.Error, "An error occurred while retrieving the user profile: the remote server returned a {Status} response with the following payload: {Headers} {Body}.")]
         private static partial void UserProfileError(
-            ILogger logger,
-            System.Net.HttpStatusCode status,
-            string headers,
-            string body);
-
-        [LoggerMessage(2, LogLevel.Warning, "An error occurred while retrieving the email address associated with the logged in user: the remote server returned a {Status} response with the following payload: {Headers} {Body}.")]
-        private static partial void EmailAddressError(
             ILogger logger,
             System.Net.HttpStatusCode status,
             string headers,
