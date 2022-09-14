@@ -458,3 +458,8 @@ Src/TikTok.Web/Properties/launchSettings.json
 Src/TikTok.Web/app.db
 Src/TikTok.Web/localhost.crt
 Src/TikTok.Web/localhost.key
+
+##
+## DynDNS
+##
+Src/TikTok.Web/wwwroot/.well-known/acme-challenge/*
